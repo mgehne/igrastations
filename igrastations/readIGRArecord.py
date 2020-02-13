@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 
 
 def readIGRArecord(filename, date, levtyp='all'):
@@ -42,8 +43,8 @@ def readIGRArecord(filename, date, levtyp='all'):
 
     if levtyp == 'pres':
         ilevp = np.where((data[:, 0] == 10) | (data[:, 0] == 21))
-        dataout = pd.DataFrame(data[ilevp],columns=vars)
+        dataout = pd.DataFrame(data[ilevp], columns=vars)
     else:
-        dataout = pd.DataFrame(data,columns=vars)
+        dataout = pd.DataFrame(data, columns=vars)
 
     return dataout
